@@ -1,7 +1,7 @@
 # Metaflow Kubernetes Plugin Testing
 
 - Constraints : 
-    - Currently tested with Minikube
+    - Tested With Kops Cluster(3 master 2 Nodes) and Minikube. No Configuration yet on where to deploy and resource limits. 
     - Supports S3 based Datastore. Wont work without S3 as datastore. 
     - Doesn't support GPU's.  
     - Needs `METAFLOW_KUBE_CONFIG_PATH` and `METAFLOW_KUBE_NAMESPACE` env vars for kubernetes config file and Namespace . Takes `~/.kube/config` and `default` as defaults
