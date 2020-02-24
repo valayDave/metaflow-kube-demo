@@ -2,7 +2,8 @@
 
 - Constraints : 
     - Currently tested with Minikube
-    - Supports S3 based Datastore. Wont work without S3 as datastore. 
+    - Supports S3 based Datastore. Wont work without S3 as datastore.
+    - Doesn't support GPU's. Still Naive and nascent
 
 ## Setting Up Environment
 - Install Minikube
