@@ -4,6 +4,7 @@
     - Currently tested with Minikube
     - Supports S3 based Datastore. Wont work without S3 as datastore. 
     - Doesn't support GPU's. 
+    - Uses Local Metadata Store. 
     - Supports Conda Decorators. Current ``setup.sh`` uses tensorflow/tensorflow image. 
     - To use conda Add the following : 
         - ``@conda_base(python=get_python_version(),libraries={'numpy':'1.18.1','tensorflow':'1.4.0','python-kubernetes':'10.0.1'})`` above the class definition to make it work with conda.
