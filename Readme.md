@@ -33,3 +33,6 @@
 ## Seeing Results Post Completion 
 - check [experiments_analytics.ipynb](experiments_analytics.ipynb)
 - Before running notebook use %set_env in notebook to set env vars for AWS Keys. 
+
+## Plugin Fork Repo 
+- https://github.com/valayDave/metaflow/tree/kube_cpu_stable
