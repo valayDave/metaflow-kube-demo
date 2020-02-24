@@ -2,6 +2,8 @@
 
 - Constraints : 
     - Tested With Kops Cluster(3 master 2 Nodes) and Minikube. No Configuration yet on where to deploy and resource limits. 
+        - For Spec of cluster user command : 
+            - ``.env/bin/python hello_mnist.py --with kube:cpu=1,memory=2000,image=tensorflow/tensorflow:latest-py3 run --num_training_examples 2500``
     - Supports S3 based Datastore. Wont work without S3 as datastore. 
     - Doesn't support GPU's.  
     - Needs `METAFLOW_KUBE_CONFIG_PATH` and `METAFLOW_KUBE_NAMESPACE` env vars for kubernetes config file and Namespace . Takes `~/.kube/config` and `default` as defaults
