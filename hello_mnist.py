@@ -57,7 +57,8 @@ def get_python_version():
     return versions[platform.python_version_tuple()[0]]
 
 
-# Use the specified version of python for this flow.
+# Uncomment below line to run it with Conda.
+# @conda_base(python=get_python_version(),libraries={'numpy':'1.18.1','tensorflow':'1.4.0','python-kubernetes':'10.0.1'})
 class MNISTNeuralNetworkExperimentationFlow(FlowSpec):
     """
     Train multiple Iterations of Machine learning models for MNIST Handwritten digit prediction.
