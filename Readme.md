@@ -9,6 +9,7 @@
         - ``@conda_base(python=get_python_version(),libraries={'numpy':'1.18.1','tensorflow':'1.4.0','python-kubernetes':'10.0.1'})`` above the class definition to make it work with conda.
         - TO run with conda change the line in setup.sh to following : 
             - ``.env/bin/python hello_mnist.py --environment=conda --with kube:cpu=2,memory=4000,image=python:3.7 run --num_training_examples 2500``
+            - Please also ensure that Conda is in the PATH env variable. 
     
 ## Setting Up Environment
 - Install Minikube
