@@ -41,5 +41,8 @@
         - ``.env/bin/python multi_step_mnist.py --environment=conda --with kube:cpu=2,memory=4000,image=python:3.7 run --num_training_examples 2500``
         - Please also ensure that Conda is in the PATH env variable. 
 
+## Installing Plugin Repo
+- ``pip install https://github.com/valayDave/metaflow/archive/kube_cpu_stable.zip``
+
 ## Plugin Fork Repo
 https://github.com/valayDave/metaflow/tree/kube_cpu_stable
