@@ -1,11 +1,16 @@
 # Metaflow With Kubernetes Demo
 
 - This repository is a demo of a plugin built on Metaflow to support Kubernetes as a compute abstraction for running machine learning workflows. 
-- Works with Kubernetes Cluster and Minikube. 
-- As Metaflow is currently coupled with AWS, S3 is required as a Datastore. 
+- Works with Kubernetes Cluster and Minikube. Works with local and Service based Metadata Provider. 
+- To run the `metaflow run` command within container follow the instructions given in *Using Metaflow with Kubernetes Cluster*
+- The plugin supports running metaflow within container or on local machine to orchestrate workflow on Kubernetes.
+- As Metaflow is currently coupled with AWS, S3 is required as a Datastore. In Future more datastores will be supported. 
 - `multi_step_mnist.py` is a demo workflow which showcases how metaflow can be used with Kubernetes to parallely train multiple models with different hyperparameters and finally easily gather collated results.  
 - The flow looks like the following : 
 ![](Resources/graph.png)
+
+## Using Metaflow with Kubernetes Cluster
+- Information on Cluster and Metaflow related services setup on Kubernetes is available [here.](https://github.com/valayDave/metaflow-on-kubernetes-docs)
     
 ## Setting Up Environment and Running Demo
 - Install Minikube or use commands in `kops.sh` to setup a CLUSTER on AWS. For more documentation on `kops` with AWS check [here.](https://github.com/kubernetes/kops/blob/master/docs/getting_started/aws.md)
@@ -33,7 +38,6 @@
 - Current Doesn't support GPU's. But it mostly will in future versions. 
 - Needs `METAFLOW_KUBE_CONFIG_PATH` and `METAFLOW_KUBE_NAMESPACE` env vars for kubernetes config file and Namespace . Takes `~/.kube/config` and `default` as defaults
 - Requires AWS Secrets in ENV Vars for Deploying PODS. That Needs fixing. 
-- Current Tested With Local Metadata Store. 
 - Supports Conda Decorators. Current ``setup.sh`` uses tensorflow/tensorflow image. 
 - To use conda Add the following : 
     - ``@conda_base(python=get_python_version(),libraries={'numpy':'1.18.1','tensorflow':'1.4.0','python-kubernetes':'10.0.1'})`` above the class definition to make it work with conda.
