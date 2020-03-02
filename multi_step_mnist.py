@@ -53,12 +53,12 @@ def get_python_version():
     """
     import platform
     versions = {'2' : '2.7.15',
-                '3' : '3.6.9'}
+                '3' : '3.6.5'}
     return versions[platform.python_version_tuple()[0]]
 
 
 # Uncomment below line to run it with Conda.
-# @conda_base(python=get_python_version(),libraries={'numpy':'1.18.1','tensorflow':'1.4.0','python-kubernetes':'10.0.1'})
+@conda_base(python=get_python_version(),libraries={'numpy':'1.18.1','tensorflow':'1.5.0','python-kubernetes':'10.0.1'})
 class MultiStepMNISTFlow(FlowSpec):
     """
     Train multiple Iterations of Machine learning models for MNIST Handwritten digit prediction.
@@ -95,7 +95,6 @@ class MultiStepMNISTFlow(FlowSpec):
         Parse the MNIST Dataset into Flattened and None Flattened Data artifacts. 
         Also set the hyper params to search over in the following steps. 
         """
-        import tensorflow 
         import numpy as np
         # $ Collect and create the unflattenned dataset according to the number of examples.
         self.train_unflattened,self.val_unflattened,self.test_unflattened = read_mnist(np,self.mnist_dataset_train_x_raw,self.mnist_dataset_train_y_raw,self.mnist_dataset_test_x_raw,self.mnist_dataset_test_y_raw,flatten=False,num_train=self.num_training_examples)

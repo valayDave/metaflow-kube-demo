@@ -23,11 +23,26 @@
 ## Using The Plugin 
 - Usage is very similar to `@batch` decorator. 
 - on top of any `@step` add the `@kube` decorator or use `--with kube:cpu=2,memory=4000,image=python:3.7` in the CLI args. 
+- To directly deploy the entire runtime into Kubernetes as a job, using the `kube-deploy run` command: 
+    -  ``python multi_step_mnist.py --with kube:cpu=3.2,memory=4000,image=tensorflow/tensorflow:latest-py3 kube-deploy run --num_training_examples 1000 --dont-exit``
+    - ``--dont-exit`` will follow log trail from the job. Otherwise the workflow will be deployed as a job on Kubernetes which will destroy itself once it ends. 
+    - ***Directly deploy to kubernetes only works with Service based Metaprovider***
+    - Good practice before directly moving to `kube-deploy` would be: 
+        - Local tests : ``python multi_step_mnist.py run --num_training_examples 1000`` : With or without Conda. 
+        - Dry run with ``python multi_step_mnist.py --with kube:cpu=3.2,memory=4000,image=tensorflow/tensorflow:latest-py3 run --num_training_examples 1000``
+        - On successful dry run : ``python multi_step_mnist.py --with kube:cpu=3.2,memory=4000,image=tensorflow/tensorflow:latest-py3 kube-deploy run --num_training_examples 50000`` : Run Larger Dataset. 
+
+### Running with Conda 
 - To run with Conda it will need `'python-kubernetes':'10.0.1'` in the libraries argument to `@conda_base` step decorator
+- Use `image=python:3.6` when running with Conda in `--with kube:`. Ideally that should be the python version used/mentioned in conda.  
+- Direct deploy to kubernetes with Conda environment is supported 
+    - ``python multi_step_mnist.py --with kube:cpu=3.2,memory=4000,image=python:3.6 --environment=conda kube-deploy run --num_training_examples 1000 --dont-exit``
+    - Ensure to use `image=python:<conda_python_version>`
 
 ## CLI Operations Available with Kube: 
 - ``python multi_step_mnist.py kube list`` : Show the currently running jobs of flow. 
 - ``python multi_step_mnist.py kube kill`` : Kills all jobs on Kube. Any Metaflow Runtime accessing those jobs will be gracefully exited. 
+- ``python multi_step_mnist.py kube-deploy run`` : Will run the Metaflow Runtime inside a container on kubernetes cluster. Needs metadata service to work.  
 
 ## Seeing Results Post Completion 
 - check [experiments_analytics.ipynb](experiments_analytics.ipynb)
