@@ -43,6 +43,7 @@
 - ``python multi_step_mnist.py kube list`` : Show the currently running jobs of flow. 
 - ``python multi_step_mnist.py kube kill`` : Kills all jobs on Kube. Any Metaflow Runtime accessing those jobs will be gracefully exited. 
 - ``python multi_step_mnist.py kube-deploy run`` : Will run the Metaflow Runtime inside a container on kubernetes cluster. Needs metadata service to work.  
+- ``python multi_step_mnist.py kube-deploy list`` : It will list any running deployment of the current flow on Kubernetes. 
 
 ## Seeing Results Post Completion 
 - check [experiments_analytics.ipynb](experiments_analytics.ipynb)
