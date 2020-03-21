@@ -39,6 +39,12 @@
     - ``python multi_step_mnist.py --with kube:cpu=3.2,memory=4000,image=python:3.6 --environment=conda kube-deploy run --num_training_examples 1000 --dont-exit``
     - Ensure to use `image=python:<conda_python_version>`
 
+### Running on GPU Clusters. 
+- Instructions for GPU Based setup for Metaflow on Kubernetes can be found (here)[https://github.com/valayDave/metaflow-on-kubernetes-docs/blob/gpu_support/gpu.md]
+
+- The deployment Is works for Cuda 9.x. 
+- Results of GPU Run on [experiments_analytics_gpumnist.ipynb](experiments_analytics_gpumnist.ipynb)
+
 ## CLI Operations Available with Kube: 
 - ``python multi_step_mnist.py kube list`` : Show the currently running jobs of flow. 
 - ``python multi_step_mnist.py kube kill`` : Kills all jobs on Kube. Any Metaflow Runtime accessing those jobs will be gracefully exited. 
@@ -51,7 +57,7 @@
 
 ## Current Constraints
 - Supports S3 based Datastore. Wont work without S3 as datastore. 
-- Current Doesn't support GPU's. But it mostly will in future versions. 
+- Current Has Been Tested with GPU's. Current Deployment Automation scripts Supports Cuda v9.1. 
 - Needs `METAFLOW_KUBE_CONFIG_PATH` and `METAFLOW_KUBE_NAMESPACE` env vars for kubernetes config file and Namespace . Takes `~/.kube/config` and `default` as defaults
 - Requires AWS Secrets in ENV Vars for Deploying PODS. That Needs fixing. 
 - Supports Conda Decorators. Current ``setup.sh`` uses tensorflow/tensorflow image. 
