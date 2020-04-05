@@ -40,9 +40,8 @@
     - Ensure to use `image=python:<conda_python_version>`
 
 ### Running on GPU Clusters. 
-- Instructions for GPU Based setup for Metaflow on Kubernetes can be found [here](https://github.com/valayDave/metaflow-on-kubernetes-docs/blob/gpu_support/gpu.md)
-
-- The deployment Is works for Cuda 9.x. 
+- Instructions for GPU Based setup for Metaflow on Kubernetes can be found [here](https://github.com/valayDave/metaflow-on-kubernetes-docs/blob/master/gpu.md)
+- The deployment works for Cuda 10.2,9.1. 
 - Results of GPU Run on [experiments_analytics_gpumnist.ipynb](experiments_analytics_gpumnist.ipynb)
 
 ## CLI Operations Available with Kube: 
